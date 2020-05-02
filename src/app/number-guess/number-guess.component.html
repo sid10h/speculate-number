@@ -1,0 +1,57 @@
+<div class="split left" style="background-color: bisque;">
+    <button mat-raised-button color="primary" style="margin-top: 300px; margin-left: 326px;" *ngIf = "!isPlay" (click)="isPlay=true">Start Playing</button>
+    <div *ngIf="isPlay">
+        <h2 style="margin-left: 10px;"> A three digit number has been generated. Start guessing!! </h2>
+        <div *ngFor = "let item of guessedNumbers, let i = index" style="clear: left; padding-left: 10px;">
+                <div class="inline">
+                    {{i+1}}. &nbsp;
+                    <mat-form-field style="width:40px;">
+                        <input matInput type="number" #first (keypress)="firstNumberOnly($event)" [(ngModel)]="item.first" [ngModelOptions]="{standalone: true}"
+                        [disabled] = "item.disable == true">
+                    </mat-form-field> &nbsp;&nbsp;
+                </div>
+                <div class="inline">
+                    <mat-form-field style="width:40px;">
+                        <input matInput type="number" #second (keypress)="numberOnly($event)" [(ngModel)]="item.second" [ngModelOptions]="{standalone: true}"
+                        [disabled] = "item.disable == true">
+                    </mat-form-field>&nbsp;&nbsp;
+                </div>
+                <div class="inline">
+                    <mat-form-field style="width:40px;">
+                        <input matInput type="number" #third (keypress)="numberOnly($event)" [(ngModel)]="item.third" [ngModelOptions]="{standalone: true}"
+                        [disabled] = "item.disable == true">
+                    </mat-form-field>&nbsp;&nbsp;
+                </div>
+                <button mat-button color="primary" style="margin-top: 10px;" (click)="testNumber(item)">Check</button>
+                <span *ngIf="item.displayMessage == true">{{item.message}}</span>
+        </div>
+        <br><br>
+        <span *ngIf="displayFailMessage" style="clear: left; padding-left: 10px;">FAIL!! The correct number was {{generatedNumber}}</span>
+    </div>
+  </div>
+  
+  <div class="split right" style="background-color: lightblue;">
+    <div>
+      <h2 style="padding-left: 10px;">How to Play</h2>
+      <p style="padding-left: 10px;">
+          1. The aim of the game is to correctly the guess the three digit number.
+          <br>
+          2. The player can make ten guesses. Corresponding to each guess there will be a message. <br>
+          3. The message will indicate the number of correct digits guessed. <br>
+          4. 'CNCP' indicates a digit that is correct and in its right place.<br>
+          5. 'CN' indicates a digit that is correct but not in its correct place.<br>  
+      </p>
+    </div>
+  </div>
+
+<!--  <style type="text/css">
+    .bgimg {
+        background-image: url('https://st3.depositphotos.com/16163280/18338/i/450/depositphotos_183384918-stock-photo-80s-synthwave-retrowave-background.jpg');
+    }
+    </style>
+    
+    ...
+    
+    <div class="bgimg">
+        div with background
+    </div> -->
