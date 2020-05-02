@@ -48,7 +48,7 @@ export class NumberGuessComponent implements OnInit {
   }
 
   testNumber(number) {
-     if(number.first == '' || number.second == '' || number.third == '') {
+     if(number.first === '' || number.second === '' || number.third === '') {
       alert('Fill all entries')
       return;
     }
