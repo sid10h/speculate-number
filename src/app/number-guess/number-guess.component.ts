@@ -112,7 +112,7 @@ export class NumberGuessComponent implements OnInit {
 
     if (number.third === thirdNum) {
       fixed++
-    } else if (number.third === firstNum || number.third === secondNum || number.second === fourthNum || number.second === fifthNum) {
+    } else if (number.third === firstNum || number.third === secondNum || number.third === fourthNum || number.third === fifthNum) {
       variable++
     }
 
