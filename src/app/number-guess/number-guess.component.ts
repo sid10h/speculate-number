@@ -24,7 +24,6 @@ export class NumberGuessComponent implements OnInit {
     guessNumber.second = '';
     guessNumber.third = '';
     this.guessedNumbers.push(guessNumber);
-    console.log(this.generatedNumber);
   }
 
   numberOnly(event): boolean {
